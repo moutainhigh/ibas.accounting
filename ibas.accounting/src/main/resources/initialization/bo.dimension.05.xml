@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE Dimension>
+<ns:Dimension xmlns:ns="http://colorcoding.org/ibas/accounting/bo">
+	<Activated>NO</Activated>
+	<Code>DIM05</Code>
+	<Name>维度五</Name>
+</ns:Dimension>

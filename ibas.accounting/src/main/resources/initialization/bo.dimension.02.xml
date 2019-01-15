@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE Dimension>
+<ns:Dimension xmlns:ns="http://colorcoding.org/ibas/accounting/bo">
+	<Activated>YES</Activated>
+	<Code>DIM02</Code>
+	<Name>维度二</Name>
+	<SourceType>CHOOSE_LIST</SourceType>
+	<Source>${Company}_SYS_USER.Code</Source>
+</ns:Dimension>
