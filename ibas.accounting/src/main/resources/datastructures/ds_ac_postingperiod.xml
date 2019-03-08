@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE Domain>
-<Domain Name="Finance" ShortName="FI">
+<Domain Name="Accounting" ShortName="AC">
   <Model Name="PostingPeriod" Description="过账期间" ModelType="Simple" Mapped="${Company}_AC_OPPD">
     <Property Name="Name" Description="名称" DataType="Alphanumeric" DataSubType="Default" EditSize="10" Mapped="Name" UniqueKey="Yes"/>
     <Property Name="Category" Description="类别" DataType="Alphanumeric" DataSubType="Default" EditSize="8" Mapped="Category"/>

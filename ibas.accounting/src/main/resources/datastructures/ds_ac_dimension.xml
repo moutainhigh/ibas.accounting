@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE Domain>
-<Domain Name="Finance" ShortName="FI">
+<Domain Name="Accounting" ShortName="AC">
   <Model Name="Dimension" Description="维度" ModelType="MasterData" Mapped="${Company}_AC_ODIM">
     <Property Name="Code" Description="编码" DataType="Alphanumeric" DataSubType="Default" EditSize="8" Mapped="Code" UniqueKey="Yes"/>
     <Property Name="Name" Description="名称" DataType="Alphanumeric" DataSubType="Default" EditSize="100" Mapped="Name"/>
