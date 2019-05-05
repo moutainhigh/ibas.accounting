@@ -27,93 +27,108 @@ namespace accounting {
                         content: [
                             new sap.ui.core.Title("", { text: ibas.i18n.prop("accounting_title_general") }),
                             new sap.m.Label("", { text: ibas.i18n.prop("bo_project_code") }),
-                            new sap.m.Input("", {
-                                type: sap.m.InputType.Text
-                            }).bindProperty("value", {
-                                path: "code"
+                            new sap.extension.m.Input("", {
+                            }).bindProperty("bindingValue", {
+                                path: "code",
+                                type: new sap.extension.data.Alphanumeric({
+                                    maxLength: 8
+                                })
                             }).bindProperty("editable", {
                                 path: "series",
                                 formatter(data: any): any {
                                     return data > 0 ? false : true;
                                 }
                             }),
-                            new sap.m.ex.SeriesSelect("", {
+                            new sap.extension.m.SeriesSelect("", {
                                 objectCode: ibas.config.applyVariables(bo.BO_CODE_PROJECT),
-                                bindingValue: {
-                                    path: "series",
-                                    type: "sap.ui.model.type.Integer",
+                            }).bindProperty("bindingValue", {
+                                path: "series",
+                                type: new sap.extension.data.Numeric()
+                            }).bindProperty("enabled", {
+                                path: "isNew",
+                                formatter(data: any): any {
+                                    return !!data ? true : false;
                                 }
                             }),
                             new sap.m.Label("", { text: ibas.i18n.prop("bo_project_name") }),
-                            new sap.m.Input("", {
-                                type: sap.m.InputType.Text
-                            }).bindProperty("value", {
-                                path: "name"
+                            new sap.extension.m.Input("", {
+                            }).bindProperty("bindingValue", {
+                                path: "name",
+                                type: new sap.extension.data.Alphanumeric({
+                                    maxLength: 100
+                                })
+                            }),
+                            new sap.m.Label("", { text: ibas.i18n.prop("bo_project_activated") }),
+                            new sap.extension.m.EnumSelect("", {
+                                enumType: ibas.emYesNo
+                            }).bindProperty("bindingValue", {
+                                path: "activated",
+                                type: new sap.extension.data.YesNo()
                             }),
                             new sap.m.Label("", { text: ibas.i18n.prop("bo_project_manager") }),
-                            new sap.m.ex.BOInput("", {
-                                boText: "name",
-                                boKey: "docEntry",
-                                boCode: ibas.config.applyVariables(initialfantasy.bo.BO_CODE_USER),
-                                repositoryName: initialfantasy.bo.BO_REPOSITORY_INITIALFANTASY,
+                            new sap.extension.m.RepositoryInput("", {
+                                showValueHelp: true,
+                                type: sap.m.InputType.Number,
+                                repository: initialfantasy.bo.BO_REPOSITORY_INITIALFANTASY,
+                                dataInfo: {
+                                    type: ibas.boFactory.classOf(initialfantasy.bo.BO_CODE_USER),
+                                    key: "DocEntry",
+                                    text: "Name"
+                                },
                                 valueHelpRequest: function (): void {
                                     that.fireViewEvents(that.chooseManagerEvent);
                                 },
-                                bindingValue: {
-                                    path: "manager"
-                                }
-                            }),
-                            new sap.m.Label("", { text: ibas.i18n.prop("bo_project_activated") }),
-                            new sap.m.Select("", {
-                                items: openui5.utils.createComboBoxItems(ibas.emYesNo)
-                            }).bindProperty("selectedKey", {
-                                path: "activated",
-                                type: "sap.ui.model.type.Integer"
+                            }).bindProperty("bindingValue", {
+                                path: "manager",
+                                type: new sap.extension.data.Numeric()
                             }),
                             new sap.m.Label("", { text: ibas.i18n.prop("bo_project_organization") }),
-                            new sap.m.ex.BOInput("", {
-                                boText: "name",
-                                boKey: "code",
-                                boCode: ibas.config.applyVariables(initialfantasy.bo.BO_CODE_ORGANIZATION),
-                                repositoryName: initialfantasy.bo.BO_REPOSITORY_INITIALFANTASY,
+                            new sap.extension.m.RepositoryInput("", {
+                                showValueHelp: true,
+                                repository: initialfantasy.bo.BO_REPOSITORY_INITIALFANTASY,
+                                dataInfo: {
+                                    type: ibas.boFactory.classOf(initialfantasy.bo.BO_CODE_ORGANIZATION),
+                                    key: "Code",
+                                    text: "Name"
+                                },
                                 valueHelpRequest: function (): void {
                                     that.fireViewEvents(that.chooseOrganizationEvent);
                                 },
-                                bindingValue: {
-                                    path: "organization"
-                                }
-                            }),
-                            new sap.ui.core.Title("", { text: ibas.i18n.prop("accounting_title_others") }),
-                            new sap.m.Label("", { text: ibas.i18n.prop("bo_project_docentry") }),
-                            new sap.m.Input("", {
-                                enabled: false,
-                                type: sap.m.InputType.Text
-                            }).bindProperty("value", {
-                                path: "docEntry"
-                            }),
-                            new sap.m.Label("", { text: ibas.i18n.prop("bo_project_objectcode") }),
-                            new sap.m.Input("", {
-                                enabled: false,
-                                type: sap.m.InputType.Text
-                            }).bindProperty("value", {
-                                path: "objectCode"
+                            }).bindProperty("bindingValue", {
+                                path: "organization",
+                                type: new sap.extension.data.Alphanumeric({
+                                    maxLength: 8
+                                })
                             }),
                             new sap.m.Label("", { text: ibas.i18n.prop("bo_project_reference1") }),
-                            new sap.m.Input("", {
-                                type: sap.m.InputType.Text
-                            }).bindProperty("value", {
-                                path: "reference1"
+                            new sap.extension.m.Input("", {
+                            }).bindProperty("bindingValue", {
+                                path: "reference1",
+                                type: new sap.extension.data.Alphanumeric({
+                                    maxLength: 100
+                                })
                             }),
                             new sap.m.Label("", { text: ibas.i18n.prop("bo_project_reference2") }),
-                            new sap.m.Input("", {
-                                type: sap.m.InputType.Text
-                            }).bindProperty("value", {
-                                path: "reference2"
+                            new sap.extension.m.Input("", {
+                            }).bindProperty("bindingValue", {
+                                path: "reference2",
+                                type: new sap.extension.data.Alphanumeric({
+                                    maxLength: 200
+                                })
                             }),
+                            new sap.ui.core.Title("", {}),
                         ]
                     });
-                    this.page = new sap.m.Page("", {
+                    let formBottom: sap.ui.layout.form.SimpleForm = new sap.ui.layout.form.SimpleForm("", {
+                        editable: true,
+                        content: [
+                        ]
+                    });
+                    return this.page = new sap.extension.m.DataPage("", {
                         showHeader: false,
+                        dataInfo: {
+                            code: bo.Project.BUSINESS_OBJECT_CODE,
+                        },
                         subHeader: new sap.m.Toolbar("", {
                             content: [
                                 new sap.m.Button("", {
@@ -162,41 +177,19 @@ namespace accounting {
                             ]
                         }),
                         content: [
-                            new sap.ui.layout.VerticalLayout("", {
-                                width: "100%",
-                                content: [
-                                    formTop,
-                                ]
-                            })
+                            formTop,
+                            formBottom,
                         ]
                     });
-                    return this.page;
                 }
 
-                private page: sap.m.Page;
-
-                /** 改变视图状态 */
-                private changeViewStatus(data: bo.Project): void {
-                    if (ibas.objects.isNull(data)) {
-                        return;
-                    }
-                    // 新建时：禁用删除，
-                    if (data.isNew) {
-                        if (this.page.getSubHeader() instanceof sap.m.Toolbar) {
-                            openui5.utils.changeToolbarSavable(<sap.m.Toolbar>this.page.getSubHeader(), true);
-                            openui5.utils.changeToolbarDeletable(<sap.m.Toolbar>this.page.getSubHeader(), false);
-                        }
-                    }
-                }
+                private page: sap.extension.m.Page;
 
                 /** 显示数据 */
                 showProject(data: bo.Project): void {
-                    this.page.setModel(new sap.ui.model.json.JSONModel(data));
-                    this.page.bindObject("/");
-                    // 监听属性改变，并更新控件
-                    openui5.utils.refreshModelChanged(this.page, data);
-                    // 改变视图状态
-                    this.changeViewStatus(data);
+                    this.page.setModel(new sap.extension.model.JSONModel(data));
+                    // 改变页面状态
+                    sap.extension.pages.changeStatus(this.page);
                 }
             }
         }

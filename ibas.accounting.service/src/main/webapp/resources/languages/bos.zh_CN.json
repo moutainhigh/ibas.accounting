@@ -90,12 +90,24 @@
         "bo_dimension_closing_delimiter": "----结束----"
     },
     {
-        "em_text": "自由文本",
-        "em_choose_list": "选择服务"
+        "em_periodstatus_open": "打开",
+        "em_periodstatus_locked": "关闭",
+        "em_periodstatus_closed": "结算"
     },
     {
-        "em_open": "打开",
-        "em_locked": "关闭",
-        "em_closed": "结算"
+        "em_periodstatus_text": "自由文本",
+        "em_periodstatus_choose_list": "选择服务"
+    },
+    {
+        "em_dimensionsource_open": "打开",
+        "em_dimensionsource_locked": "关闭",
+        "em_dimensionsource_closed": "结算"
+    },
+    {
+        "em_dimensiontype_dimension_1": "维度1",
+        "em_dimensiontype_dimension_2": "维度2",
+        "em_dimensiontype_dimension_3": "维度3",
+        "em_dimensiontype_dimension_4": "维度4",
+        "em_dimensiontype_dimension_5": "维度5"
     }
 ]
