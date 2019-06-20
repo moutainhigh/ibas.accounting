@@ -40,7 +40,7 @@ namespace accounting {
                                 }
                             }),
                             new sap.extension.m.SeriesSelect("", {
-                                objectCode: ibas.config.applyVariables(bo.BO_CODE_PROJECT),
+                                objectCode: bo.BO_CODE_PROJECT,
                             }).bindProperty("bindingValue", {
                                 path: "series",
                                 type: new sap.extension.data.Numeric()
