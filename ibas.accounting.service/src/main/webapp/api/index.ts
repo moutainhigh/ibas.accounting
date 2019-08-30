@@ -9,4 +9,5 @@
 /// <reference path="./bo/PostingPeriod.ts" />
 /// <reference path="./bo/Project.ts" />
 /// <reference path="./bo/Dimension.ts" />
+/// <reference path="./bo/TaxGroup.ts" />
 /// <reference path="./BORepository.ts" />

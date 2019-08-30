@@ -1,11 +1,12 @@
 package org.colorcoding.ibas.accounting.repository;
 
-import org.colorcoding.ibas.bobas.common.ICriteria;
-import org.colorcoding.ibas.bobas.common.IOperationResult;
-import org.colorcoding.ibas.bobas.repository.IBORepositoryApplication;
 import org.colorcoding.ibas.accounting.bo.dimension.IDimension;
 import org.colorcoding.ibas.accounting.bo.postingperiod.IPostingPeriod;
 import org.colorcoding.ibas.accounting.bo.project.IProject;
+import org.colorcoding.ibas.accounting.bo.taxgroup.ITaxGroup;
+import org.colorcoding.ibas.bobas.common.ICriteria;
+import org.colorcoding.ibas.bobas.common.IOperationResult;
+import org.colorcoding.ibas.bobas.repository.IBORepositoryApplication;
 
 /**
  * Accounting仓库应用
@@ -62,6 +63,23 @@ public interface IBORepositoryAccountingApp extends IBORepositoryApplication {
 	 * @return 操作结果
 	 */
 	IOperationResult<IDimension> saveDimension(IDimension bo);
+
+	// --------------------------------------------------------------------------------------------//
+	/**
+	 * 查询-税收组
+	 * 
+	 * @param criteria 查询
+	 * @return 操作结果
+	 */
+	IOperationResult<ITaxGroup> fetchTaxGroup(ICriteria criteria);
+
+	/**
+	 * 保存-税收组
+	 * 
+	 * @param bo 对象实例
+	 * @return 操作结果
+	 */
+	IOperationResult<ITaxGroup> saveTaxGroup(ITaxGroup bo);
 	// --------------------------------------------------------------------------------------------//
 
 }

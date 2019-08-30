@@ -1,15 +1,17 @@
 package org.colorcoding.ibas.accounting.repository;
 
-import org.colorcoding.ibas.bobas.common.ICriteria;
-import org.colorcoding.ibas.bobas.common.IOperationResult;
-import org.colorcoding.ibas.bobas.common.OperationResult;
-import org.colorcoding.ibas.bobas.repository.BORepositoryServiceApplication;
 import org.colorcoding.ibas.accounting.bo.dimension.Dimension;
 import org.colorcoding.ibas.accounting.bo.dimension.IDimension;
 import org.colorcoding.ibas.accounting.bo.postingperiod.IPostingPeriod;
 import org.colorcoding.ibas.accounting.bo.postingperiod.PostingPeriod;
 import org.colorcoding.ibas.accounting.bo.project.IProject;
 import org.colorcoding.ibas.accounting.bo.project.Project;
+import org.colorcoding.ibas.accounting.bo.taxgroup.ITaxGroup;
+import org.colorcoding.ibas.accounting.bo.taxgroup.TaxGroup;
+import org.colorcoding.ibas.bobas.common.ICriteria;
+import org.colorcoding.ibas.bobas.common.IOperationResult;
+import org.colorcoding.ibas.bobas.common.OperationResult;
+import org.colorcoding.ibas.bobas.repository.BORepositoryServiceApplication;
 
 /**
  * Accounting仓库
@@ -144,7 +146,50 @@ public class BORepositoryAccounting extends BORepositoryServiceApplication
 	 */
 	public IOperationResult<IDimension> saveDimension(IDimension bo) {
 		return new OperationResult<IDimension>(this.saveDimension((Dimension) bo, this.getUserToken()));
+	} // --------------------------------------------------------------------------------------------//
+
+	/**
+	 * 查询-税收组
+	 * 
+	 * @param criteria 查询
+	 * @param token    口令
+	 * @return 操作结果
+	 */
+	public OperationResult<TaxGroup> fetchTaxGroup(ICriteria criteria, String token) {
+		return super.fetch(criteria, token, TaxGroup.class);
 	}
+
+	/**
+	 * 查询-税收组（提前设置用户口令）
+	 * 
+	 * @param criteria 查询
+	 * @return 操作结果
+	 */
+	public IOperationResult<ITaxGroup> fetchTaxGroup(ICriteria criteria) {
+		return new OperationResult<ITaxGroup>(this.fetchTaxGroup(criteria, this.getUserToken()));
+	}
+
+	/**
+	 * 保存-税收组
+	 * 
+	 * @param bo    对象实例
+	 * @param token 口令
+	 * @return 操作结果
+	 */
+	public OperationResult<TaxGroup> saveTaxGroup(TaxGroup bo, String token) {
+		return super.save(bo, token);
+	}
+
+	/**
+	 * 保存-税收组（提前设置用户口令）
+	 * 
+	 * @param bo 对象实例
+	 * @return 操作结果
+	 */
+	public IOperationResult<ITaxGroup> saveTaxGroup(ITaxGroup bo) {
+		return new OperationResult<ITaxGroup>(this.saveTaxGroup((TaxGroup) bo, this.getUserToken()));
+	}
+
 	// --------------------------------------------------------------------------------------------//
 
 }

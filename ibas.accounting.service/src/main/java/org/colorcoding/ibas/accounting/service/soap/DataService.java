@@ -4,13 +4,14 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import org.colorcoding.ibas.bobas.common.Criteria;
-import org.colorcoding.ibas.bobas.common.OperationResult;
-import org.colorcoding.ibas.bobas.cxf.WebServicePath;
 import org.colorcoding.ibas.accounting.bo.dimension.Dimension;
 import org.colorcoding.ibas.accounting.bo.postingperiod.PostingPeriod;
 import org.colorcoding.ibas.accounting.bo.project.Project;
+import org.colorcoding.ibas.accounting.bo.taxgroup.TaxGroup;
 import org.colorcoding.ibas.accounting.repository.BORepositoryAccounting;
+import org.colorcoding.ibas.bobas.common.Criteria;
+import org.colorcoding.ibas.bobas.common.OperationResult;
+import org.colorcoding.ibas.bobas.cxf.WebServicePath;
 
 /**
  * Accounting 数据服务JSON
@@ -98,6 +99,33 @@ public class DataService extends BORepositoryAccounting {
 	public OperationResult<Dimension> saveDimension(@WebParam(name = "bo") Dimension bo,
 			@WebParam(name = "token") String token) {
 		return super.saveDimension(bo, token);
+	}
+
+	// --------------------------------------------------------------------------------------------//
+	/**
+	 * 查询-税收组
+	 * 
+	 * @param criteria 查询
+	 * @param token    口令
+	 * @return 操作结果
+	 */
+	@WebMethod
+	public OperationResult<TaxGroup> fetchTaxGroup(@WebParam(name = "criteria") Criteria criteria,
+			@WebParam(name = "token") String token) {
+		return super.fetchTaxGroup(criteria, token);
+	}
+
+	/**
+	 * 保存-税收组
+	 * 
+	 * @param bo    对象实例
+	 * @param token 口令
+	 * @return 操作结果
+	 */
+	@WebMethod
+	public OperationResult<TaxGroup> saveTaxGroup(@WebParam(name = "bo") TaxGroup bo,
+			@WebParam(name = "token") String token) {
+		return super.saveTaxGroup(bo, token);
 	}
 	// --------------------------------------------------------------------------------------------//
 

@@ -9,6 +9,7 @@
 /// <reference path="./postingperiod/index.ts" />
 /// <reference path="./project/index.ts" />
 /// <reference path="./dimension/index.ts" />
+/// <reference path="./taxgroup/index.ts" />
 namespace accounting {
     export namespace app {
         /** 属性-导航 */
@@ -32,12 +33,14 @@ namespace accounting {
                 // 注册功能
                 this.register(new ProjectFunc());
                 this.register(new DimensionFunc());
+                this.register(new TaxGroupFunc());
                 this.register(new PostingPeriodFunc());
                 // 注册服务应用
                 this.register(new PostingPeriodChooseServiceMapping());
                 this.register(new ProjectChooseServiceMapping());
                 this.register(new DimensionChooseServiceMapping());
                 this.register(new DimensionDataServiceMapping());
+                this.register(new TaxGroupChooseServiceMapping());
                 // 注册常驻应用
 
             }

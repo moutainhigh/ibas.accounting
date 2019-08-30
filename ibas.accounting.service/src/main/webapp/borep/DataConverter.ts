@@ -49,6 +49,10 @@ namespace accounting {
                     if (property === bo.Dimension.PROPERTY_SOURCETYPE_NAME) {
                         return ibas.enums.toString(emDimensionSource, value);
                     }
+                } else if (boName === bo.TaxGroup.name) {
+                    if (property === bo.TaxGroup.PROPERTY_CATEGORY_NAME) {
+                        return ibas.enums.toString(emTaxGroupCategory, value);
+                    }
                 }
                 return super.convertData(boName, property, value);
             }
@@ -68,6 +72,10 @@ namespace accounting {
                 } else if (boName === bo.Dimension.name) {
                     if (property === bo.Dimension.PROPERTY_SOURCETYPE_NAME) {
                         return ibas.enums.valueOf(emDimensionSource, value);
+                    }
+                } else if (boName === bo.TaxGroup.name) {
+                    if (property === bo.TaxGroup.PROPERTY_CATEGORY_NAME) {
+                        return ibas.enums.valueOf(emTaxGroupCategory, value);
                     }
                 }
                 return super.parsingData(boName, property, value);

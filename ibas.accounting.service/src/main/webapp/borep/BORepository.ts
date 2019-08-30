@@ -81,6 +81,21 @@ namespace accounting {
             saveDimension(saver: ibas.ISaveCaller<bo.Dimension>): void {
                 super.save(bo.Dimension.name, saver);
             }
+            /**
+             * 查询 税收组
+             * @param fetcher 查询者
+             */
+            fetchTaxGroup(fetcher: ibas.IFetchCaller<bo.TaxGroup>): void {
+                super.fetch(bo.TaxGroup.name, fetcher);
+            }
+            /**
+             * 保存 税收组
+             * @param saver 保存者
+             */
+            saveTaxGroup(saver: ibas.ISaveCaller<bo.TaxGroup>): void {
+                super.save(bo.TaxGroup.name, saver);
+            }
+
         }
     }
 }

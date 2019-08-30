@@ -9,6 +9,7 @@
 /// <reference path="./postingperiod/index.ts" />
 /// <reference path="./project/index.ts" />
 /// <reference path="./dimension/index.ts" />
+/// <reference path="./taxgroup/index.ts" />
 namespace accounting {
     export namespace ui {
         /** 视图导航 */
@@ -49,6 +50,15 @@ namespace accounting {
                         break;
                     case app.DimensionDataService.APPLICATION_ID:
                         view = new c.DimensionDataView();
+                        break;
+                    case app.TaxGroupListApp.APPLICATION_ID:
+                        view = new c.TaxGroupListView();
+                        break;
+                    case app.TaxGroupChooseApp.APPLICATION_ID:
+                        view = new c.TaxGroupChooseView();
+                        break;
+                    case app.TaxGroupEditApp.APPLICATION_ID:
+                        view = new c.TaxGroupEditView();
                         break;
                     default:
                         break;

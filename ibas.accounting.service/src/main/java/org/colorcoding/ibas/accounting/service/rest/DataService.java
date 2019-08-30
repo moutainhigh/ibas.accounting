@@ -7,12 +7,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.colorcoding.ibas.bobas.common.Criteria;
-import org.colorcoding.ibas.bobas.common.OperationResult;
 import org.colorcoding.ibas.accounting.bo.dimension.Dimension;
 import org.colorcoding.ibas.accounting.bo.postingperiod.PostingPeriod;
 import org.colorcoding.ibas.accounting.bo.project.Project;
+import org.colorcoding.ibas.accounting.bo.taxgroup.TaxGroup;
 import org.colorcoding.ibas.accounting.repository.BORepositoryAccounting;
+import org.colorcoding.ibas.bobas.common.Criteria;
+import org.colorcoding.ibas.bobas.common.OperationResult;
 
 /**
  * Accounting 数据服务JSON
@@ -111,6 +112,37 @@ public class DataService extends BORepositoryAccounting {
 	@Path("saveDimension")
 	public OperationResult<Dimension> saveDimension(Dimension bo, @QueryParam("token") String token) {
 		return super.saveDimension(bo, token);
+	}
+
+	// --------------------------------------------------------------------------------------------//
+	/**
+	 * 查询-税收组
+	 * 
+	 * @param criteria 查询
+	 * @param token    口令
+	 * @return 操作结果
+	 */
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("fetchTaxGroup")
+	public OperationResult<TaxGroup> fetchTaxGroup(Criteria criteria, @QueryParam("token") String token) {
+		return super.fetchTaxGroup(criteria, token);
+	}
+
+	/**
+	 * 保存-税收组
+	 * 
+	 * @param bo    对象实例
+	 * @param token 口令
+	 * @return 操作结果
+	 */
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("saveTaxGroup")
+	public OperationResult<TaxGroup> saveTaxGroup(TaxGroup bo, @QueryParam("token") String token) {
+		return super.saveTaxGroup(bo, token);
 	}
 	// --------------------------------------------------------------------------------------------//
 

@@ -22,6 +22,8 @@ namespace accounting {
         export const BO_CODE_PROJECT: string = "${Company}_AC_PROJECT";
         /** 业务对象编码-维度 */
         export const BO_CODE_DIMENSION: string = "${Company}_AC_DIMENSION";
+        /** 业务对象编码-税收组 */
+        export const BO_CODE_TAXGROUP: string = "${Company}_AC_TAXGROUP";
         /**
          * 期间状态
          */
@@ -42,6 +44,15 @@ namespace accounting {
             /** 选择服务 */
             CHOOSE_LIST
         }
+        /**
+         * 税收组类型
+         */
+        export enum emTaxGroupCategory {
+            /** 销项税 */
+            OUTPUT,
+            /** 进项税 */
+            INPUT
+        }
     }
     export namespace app {
         /**
@@ -61,6 +72,50 @@ namespace accounting {
         }
         /** 维度服务代理 */
         export class DimensionDataServiceProxy extends ibas.ServiceProxy<IDimensionDataServiceContract> {
+        }
+        /** 查询条件 */
+        export namespace conditions {
+            export namespace taxgroup {
+                /** 默认查询条件 */
+                export function create(category?: bo.emTaxGroupCategory): ibas.IList<ibas.ICondition> {
+                    let today: string = ibas.dates.toString(ibas.dates.today(), "yyyy-MM-dd");
+                    let conditions: ibas.IList<ibas.ICondition> = new ibas.ArrayList<ibas.ICondition>();
+                    let condition: ibas.ICondition;
+                    // 激活的
+                    condition = new ibas.Condition();
+                    condition.alias = "Activated";
+                    condition.operation = ibas.emConditionOperation.EQUAL;
+                    condition.value = ibas.emYesNo.YES.toString();
+                    conditions.add(condition);
+                    if (!ibas.objects.isNull(category)) {
+                        // 类型
+                        condition = new ibas.Condition();
+                        condition.alias = "Category";
+                        condition.operation = ibas.emConditionOperation.EQUAL;
+                        condition.value = category.toString();
+                        conditions.add(condition);
+                    }
+                    // 有效日期
+                    condition = new ibas.Condition();
+                    condition.bracketOpen = 1;
+                    condition.alias = "ValidDate";
+                    condition.operation = ibas.emConditionOperation.IS_NULL;
+                    conditions.add(condition);
+                    condition = new ibas.Condition();
+                    condition.relationship = ibas.emConditionRelationship.OR;
+                    condition.bracketOpen = 1;
+                    condition.alias = "ValidDate";
+                    condition.operation = ibas.emConditionOperation.NOT_NULL;
+                    conditions.add(condition);
+                    condition = new ibas.Condition();
+                    condition.bracketClose = 2;
+                    condition.alias = "ValidDate";
+                    condition.operation = ibas.emConditionOperation.LESS_EQUAL;
+                    condition.value = today;
+                    conditions.add(condition);
+                    return conditions;
+                }
+            }
         }
     }
 }

@@ -49,6 +49,16 @@ namespace accounting {
              * @param saver 保存者
              */
             saveDimension(saver: ibas.ISaveCaller<bo.IDimension>): void;
+            /**
+             * 查询 税收组
+             * @param fetcher 查询者
+             */
+            fetchTaxGroup(fetcher: ibas.IFetchCaller<bo.ITaxGroup>): void;
+            /**
+             * 保存 税收组
+             * @param saver 保存者
+             */
+            saveTaxGroup(saver: ibas.ISaveCaller<bo.ITaxGroup>): void;
 
         }
     }

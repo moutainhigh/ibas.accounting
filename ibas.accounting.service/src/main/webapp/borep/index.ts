@@ -9,6 +9,7 @@
 /// <reference path="./bo/PostingPeriod.ts" />
 /// <reference path="./bo/Project.ts" />
 /// <reference path="./bo/Dimension.ts" />
+/// <reference path="./bo/TaxGroup.ts" />
 /// <reference path="./DataConverter.ts" />
 /// <reference path="./BORepository.ts" />
 namespace accounting {
@@ -19,5 +20,6 @@ namespace accounting {
         boFactory.register(PostingPeriod.BUSINESS_OBJECT_CODE, PostingPeriod);
         boFactory.register(Project.BUSINESS_OBJECT_CODE, Project);
         boFactory.register(Dimension.BUSINESS_OBJECT_CODE, Dimension);
+        boFactory.register(TaxGroup.BUSINESS_OBJECT_CODE, TaxGroup);
     }
 }

@@ -90,6 +90,31 @@
         "bo_dimension_closing_delimiter": "----结束----"
     },
     {
+        "bo_taxgroup": "税收组",
+        "bo_taxgroup_code": "编码",
+        "bo_taxgroup_name": "名称",
+        "bo_taxgroup_activated": "激活",
+        "bo_taxgroup_validdate": "生效日期",
+        "bo_taxgroup_category": "类型",
+        "bo_taxgroup_rate": "税率",
+        "bo_taxgroup_reference1": "参考1",
+        "bo_taxgroup_reference2": "参考2",
+        "bo_taxgroup_docentry": "对象编号",
+        "bo_taxgroup_objectcode": "对象类型",
+        "bo_taxgroup_createdate": "创建日期",
+        "bo_taxgroup_createtime": "创建时间",
+        "bo_taxgroup_updatedate": "修改日期",
+        "bo_taxgroup_updatetime": "修改时间",
+        "bo_taxgroup_datasource": "数据源",
+        "bo_taxgroup_loginst": "实例号（版本）",
+        "bo_taxgroup_series": "服务系列",
+        "bo_taxgroup_createusersign": "创建用户",
+        "bo_taxgroup_updateusersign": "修改用户",
+        "bo_taxgroup_createactionid": "创建动作标识",
+        "bo_taxgroup_updateactionid": "更新动作标识",
+        "bo_taxgroup_closing_delimiter": "----结束----"
+    },
+    {
         "em_periodstatus_open": "打开",
         "em_periodstatus_locked": "关闭",
         "em_periodstatus_closed": "结算"
@@ -109,5 +134,9 @@
         "em_dimensiontype_dimension_3": "维度3",
         "em_dimensiontype_dimension_4": "维度4",
         "em_dimensiontype_dimension_5": "维度5"
+    },
+    {
+        "em_taxgroupcategory_input": "进行税",
+        "em_taxgroupcategory_output": "销项税"
     }
 ]
