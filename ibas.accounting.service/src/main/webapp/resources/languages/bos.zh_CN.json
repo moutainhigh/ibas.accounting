@@ -136,7 +136,7 @@
         "em_dimensiontype_dimension_5": "维度5"
     },
     {
-        "em_taxgroupcategory_input": "进行税",
+        "em_taxgroupcategory_input": "进项税",
         "em_taxgroupcategory_output": "销项税"
     }
 ]
