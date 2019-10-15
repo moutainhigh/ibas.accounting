@@ -83,14 +83,14 @@ namespace accounting {
                     let condition: ibas.ICondition;
                     // 激活的
                     condition = new ibas.Condition();
-                    condition.alias = "Activated";
+                    condition.alias = bo.TaxGroup.PROPERTY_ACTIVATED_NAME;
                     condition.operation = ibas.emConditionOperation.EQUAL;
                     condition.value = ibas.emYesNo.YES.toString();
                     conditions.add(condition);
                     if (!ibas.objects.isNull(category)) {
                         // 类型
                         condition = new ibas.Condition();
-                        condition.alias = "Category";
+                        condition.alias = bo.TaxGroup.PROPERTY_CATEGORY_NAME;
                         condition.operation = ibas.emConditionOperation.EQUAL;
                         condition.value = category.toString();
                         conditions.add(condition);
@@ -98,18 +98,18 @@ namespace accounting {
                     // 有效日期
                     condition = new ibas.Condition();
                     condition.bracketOpen = 1;
-                    condition.alias = "ValidDate";
+                    condition.alias = bo.TaxGroup.PROPERTY_VALIDDATE_NAME;
                     condition.operation = ibas.emConditionOperation.IS_NULL;
                     conditions.add(condition);
                     condition = new ibas.Condition();
                     condition.relationship = ibas.emConditionRelationship.OR;
                     condition.bracketOpen = 1;
-                    condition.alias = "ValidDate";
+                    condition.alias = bo.TaxGroup.PROPERTY_VALIDDATE_NAME;
                     condition.operation = ibas.emConditionOperation.NOT_NULL;
                     conditions.add(condition);
                     condition = new ibas.Condition();
                     condition.bracketClose = 2;
-                    condition.alias = "ValidDate";
+                    condition.alias = bo.TaxGroup.PROPERTY_VALIDDATE_NAME;
                     condition.operation = ibas.emConditionOperation.LESS_EQUAL;
                     condition.value = today;
                     conditions.add(condition);
