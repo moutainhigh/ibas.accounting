@@ -175,9 +175,7 @@ namespace accounting {
             }
             /** 添加过账期间-项目事件 */
             protected addPostingPeriodItem(): void {
-                this.editData.postingPeriodItems.create();
-                // 仅显示没有标记删除的
-                this.view.showPostingPeriodItems(this.editData.postingPeriodItems.filterDeleted());
+                this.chooseBusinessObject(undefined);
             }
             /** 删除过账期间-项目事件 */
             protected removePostingPeriodItem(items: bo.PostingPeriodItem[]): void {
