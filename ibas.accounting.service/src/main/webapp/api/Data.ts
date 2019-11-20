@@ -118,4 +118,76 @@ namespace accounting {
             }
         }
     }
+    export namespace taxrate {
+        /**
+         * 分配税率
+         * @param taxCode 税码
+         * @param onCompeleted 完成
+         */
+        export function assign(taxCode: string, onCompeleted: (rate: number) => void): void {
+            if (!(onCompeleted instanceof Function)) {
+                return;
+            }
+            if (ibas.strings.isEmpty(taxCode)) {
+                onCompeleted(undefined);
+            } else {
+                gain(undefined, (results) => {
+                    for (let item of results) {
+                        if (ibas.strings.equals(item.code, taxCode)) {
+                            onCompeleted(item.rate);
+                            break;
+                        }
+                    }
+                });
+            }
+        }
+        let TAX_GROUPS: Array<bo.ITaxGroup>;
+        /**
+         * 获取税组
+         * @param category 类型
+         * @param onCompeleted 完成
+         */
+        export function gain(category: bo.emTaxGroupCategory, onCompeleted: (tax: { code: string, name: string, rate: number }[]) => void): void {
+            if (TAX_GROUPS === undefined) {
+                // 未初始化
+                TAX_GROUPS = null;
+                try {
+                    let boReposiorty: bo.IBORepositoryAccounting = ibas.boFactory.create(bo.BO_REPOSITORY_ACCOUNTING);
+                    boReposiorty.fetchTaxGroup({
+                        criteria: app.conditions.taxgroup.create(),
+                        onCompleted: (opRslt) => {
+                            TAX_GROUPS = new Array<bo.ITaxGroup>();
+                            for (let item of opRslt.resultObjects) {
+                                TAX_GROUPS.push(item);
+                            }
+                            gain(category, onCompeleted);
+                        }
+                    });
+                } catch (error) {
+                    TAX_GROUPS = new Array<bo.ITaxGroup>();
+                }
+            } else if (TAX_GROUPS === null) {
+                // 初始化中，过会调用
+                setTimeout(() => {
+                    gain(category, onCompeleted);
+                }, 100);
+            } else {
+                // 已初始化，从缓存中获取数据
+                let results: Array<{ code: string, name: string, rate: number }> = new Array<{ code: string, name: string, rate: number }>();
+                for (let item of TAX_GROUPS) {
+                    if (category >= 0 && category !== item.category) {
+                        continue;
+                    }
+                    results.push({
+                        code: item.code,
+                        name: item.name,
+                        rate: item.rate
+                    });
+                }
+                if (onCompeleted instanceof Function) {
+                    onCompeleted(results);
+                }
+            }
+        }
+    }
 }

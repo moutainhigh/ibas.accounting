@@ -76,7 +76,7 @@ public class PostingPeriodItems extends BusinessObjects<IPostingPeriodItem, IPos
 	}
 
 	@Override
-	public void onParentPropertyChanged(PropertyChangeEvent evt) {
+	protected void onParentPropertyChanged(PropertyChangeEvent evt) {
 		super.onParentPropertyChanged(evt);
 	}
 }
