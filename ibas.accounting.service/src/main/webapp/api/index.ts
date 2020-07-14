@@ -6,6 +6,7 @@
  * that can be found in the LICENSE file at http://www.apache.org/licenses/LICENSE-2.0
  */
 /// <reference path="./Data.ts" />
+/// <reference path="./bo/PeriodCategory.ts" />
 /// <reference path="./bo/PostingPeriod.ts" />
 /// <reference path="./bo/Project.ts" />
 /// <reference path="./bo/Dimension.ts" />

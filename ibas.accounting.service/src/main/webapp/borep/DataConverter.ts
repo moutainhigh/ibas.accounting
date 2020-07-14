@@ -45,6 +45,14 @@ namespace accounting {
                     if (property === bo.PostingPeriod.PROPERTY_STATUS_NAME) {
                         return ibas.enums.toString(emPeriodStatus, value);
                     }
+                } else if (boName === bo.PeriodCategory.name) {
+                    if (property === bo.PeriodCategory.PROPERTY_STATUS_NAME) {
+                        return ibas.enums.toString(emPeriodStatus, value);
+                    }
+                } else if (boName === bo.PostingPeriodItem.name) {
+                    if (property === bo.PostingPeriodItem.PROPERTY_STATUS_NAME) {
+                        return ibas.enums.toString(emPeriodStatus, value);
+                    }
                 } else if (boName === bo.Dimension.name) {
                     if (property === bo.Dimension.PROPERTY_SOURCETYPE_NAME) {
                         return ibas.enums.toString(emDimensionSource, value);
@@ -67,6 +75,14 @@ namespace accounting {
             protected parsingData(boName: string, property: string, value: any): any {
                 if (boName === bo.PostingPeriod.name) {
                     if (property === bo.PostingPeriod.PROPERTY_STATUS_NAME) {
+                        return ibas.enums.valueOf(emPeriodStatus, value);
+                    }
+                } else if (boName === bo.PeriodCategory.name) {
+                    if (property === bo.PeriodCategory.PROPERTY_STATUS_NAME) {
+                        return ibas.enums.valueOf(emPeriodStatus, value);
+                    }
+                } else if (boName === bo.PostingPeriodItem.name) {
+                    if (property === bo.PostingPeriodItem.PROPERTY_STATUS_NAME) {
                         return ibas.enums.valueOf(emPeriodStatus, value);
                     }
                 } else if (boName === bo.Dimension.name) {

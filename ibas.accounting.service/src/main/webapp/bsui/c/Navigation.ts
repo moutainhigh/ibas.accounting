@@ -21,14 +21,17 @@ namespace accounting {
             protected newView(id: string): ibas.IView {
                 let view: ibas.IView = null;
                 switch (id) {
-                    case app.PostingPeriodListApp.APPLICATION_ID:
-                        view = new c.PostingPeriodListView();
+                    case app.PeriodCategoryListApp.APPLICATION_ID:
+                        view = new c.PeriodCategoryListView();
                         break;
                     case app.PostingPeriodChooseApp.APPLICATION_ID:
                         view = new c.PostingPeriodChooseView();
                         break;
-                    case app.PostingPeriodEditApp.APPLICATION_ID:
-                        view = new c.PostingPeriodEditView();
+                    case app.PeriodCategoryEditApp.APPLICATION_ID:
+                        view = new c.PeriodCategoryEditView();
+                        break;
+                    case app.PeriodCategoryChooseApp.APPLICATION_ID:
+                        view = new c.PeriodCategoryChooseView();
                         break;
                     case app.ProjectListApp.APPLICATION_ID:
                         view = new c.ProjectListView();

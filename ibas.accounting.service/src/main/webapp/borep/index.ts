@@ -6,6 +6,7 @@
  * that can be found in the LICENSE file at http://www.apache.org/licenses/LICENSE-2.0
  */
 /// <reference path="../api/index.ts" />
+/// <reference path="./bo/PeriodCategory.ts" />
 /// <reference path="./bo/PostingPeriod.ts" />
 /// <reference path="./bo/Project.ts" />
 /// <reference path="./bo/Dimension.ts" />
@@ -17,6 +18,7 @@ namespace accounting {
         // 注册业务对象仓库到工厂
         boFactory.register(BO_REPOSITORY_ACCOUNTING, BORepositoryAccounting);
         // 注册业务对象到工厂
+        boFactory.register(PeriodCategory.BUSINESS_OBJECT_CODE, PeriodCategory);
         boFactory.register(PostingPeriod.BUSINESS_OBJECT_CODE, PostingPeriod);
         boFactory.register(Project.BUSINESS_OBJECT_CODE, Project);
         boFactory.register(Dimension.BUSINESS_OBJECT_CODE, Dimension);

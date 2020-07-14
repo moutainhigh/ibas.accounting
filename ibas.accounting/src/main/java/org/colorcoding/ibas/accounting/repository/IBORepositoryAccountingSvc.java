@@ -1,6 +1,7 @@
 package org.colorcoding.ibas.accounting.repository;
 
 import org.colorcoding.ibas.accounting.bo.dimension.Dimension;
+import org.colorcoding.ibas.accounting.bo.postingperiod.PeriodCategory;
 import org.colorcoding.ibas.accounting.bo.postingperiod.PostingPeriod;
 import org.colorcoding.ibas.accounting.bo.project.Project;
 import org.colorcoding.ibas.accounting.bo.taxgroup.TaxGroup;
@@ -12,6 +13,24 @@ import org.colorcoding.ibas.bobas.repository.IBORepositorySmartService;
  * Accounting仓库服务
  */
 public interface IBORepositoryAccountingSvc extends IBORepositorySmartService {
+	// --------------------------------------------------------------------------------------------//
+	/**
+	 * 查询-期间类型
+	 * 
+	 * @param criteria 查询
+	 * @param token    口令
+	 * @return 操作结果
+	 */
+	OperationResult<PeriodCategory> fetchPeriodCategory(ICriteria criteria, String token);
+
+	/**
+	 * 保存-期间类型
+	 * 
+	 * @param bo    对象实例
+	 * @param token 口令
+	 * @return 操作结果
+	 */
+	OperationResult<PeriodCategory> savePeriodCategory(PeriodCategory bo, String token);
 
 	// --------------------------------------------------------------------------------------------//
 	/**

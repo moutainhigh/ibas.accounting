@@ -72,7 +72,7 @@ namespace accounting {
                 // 关闭自身
                 this.destroy();
                 // 调用编辑应用
-                let app: PostingPeriodEditApp = new PostingPeriodEditApp();
+                let app: PeriodCategoryEditApp = new PeriodCategoryEditApp();
                 app.navigation = this.navigation;
                 app.viewShower = this.viewShower;
                 app.run();

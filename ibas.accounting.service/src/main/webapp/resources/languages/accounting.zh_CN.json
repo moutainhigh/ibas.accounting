@@ -1,6 +1,11 @@
 {
   "accounting": "财务管理",
   "accounting_icon": "sap-icon://monitor-payments",
+  "accounting_func_periodcategory": "期间类型",
+  "accounting_app_periodcategory_list": "期间类型列表",
+  "accounting_app_periodcategory_choose": "期间类型选择",
+  "accounting_app_periodcategory_view": "期间类型查看",
+  "accounting_app_periodcategory_edit": "期间类型编辑",
   "accounting_func_postingperiod": "过账期间",
   "accounting_app_postingperiod_list": "过账期间列表",
   "accounting_app_postingperiod_choose": "过账期间选择",
@@ -26,5 +31,10 @@
   "accounting_title_others": "其他信息",
   "accounting_test_dimension_source": "测试源",
   "accounting_dimension_invaild": "维度[{0}]不可用",
+  "accounting_postingperiod_12_months": "12月",
+  "accounting_postingperiod_4_quarters": " 4季度",
+  "accounting_data_was_using": "[{0}]已使用，不支持此操作",
+  "accounting_data_exists": "期间已存在，不支持此操作",
+  "accounting_please_set_data_value": "请设置[{0}]的[{1}]值",
   "accounting_closing_delimiter": "----结束----"
 }

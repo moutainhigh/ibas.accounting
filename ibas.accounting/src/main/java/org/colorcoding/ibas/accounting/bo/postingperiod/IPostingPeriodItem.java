@@ -1,8 +1,8 @@
 package org.colorcoding.ibas.accounting.bo.postingperiod;
 
+import org.colorcoding.ibas.accounting.data.emPeriodStatus;
 import org.colorcoding.ibas.bobas.bo.IBOSimpleLine;
 import org.colorcoding.ibas.bobas.data.DateTime;
-import org.colorcoding.ibas.accounting.data.emPeriodStatus;
 
 /**
  * 过账期间-项目 接口
@@ -11,18 +11,18 @@ import org.colorcoding.ibas.accounting.data.emPeriodStatus;
 public interface IPostingPeriodItem extends IBOSimpleLine {
 
 	/**
-	 * 获取-业务对象
+	 * 获取-单据类型
 	 * 
 	 * @return 值
 	 */
-	String getBusinessObject();
+	String getDocumentType();
 
 	/**
-	 * 设置-业务对象
+	 * 设置-单据类型
 	 * 
 	 * @param value 值
 	 */
-	void setBusinessObject(String value);
+	void setDocumentType(String value);
 
 	/**
 	 * 获取-状态

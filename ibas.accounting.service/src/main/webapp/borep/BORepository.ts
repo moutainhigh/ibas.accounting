@@ -38,6 +38,20 @@ namespace accounting {
                 fileRepository.download("download", caller);
             }
             /**
+             * 查询 期间类型
+             * @param fetcher 查询者
+             */
+            fetchPeriodCategory(fetcher: ibas.IFetchCaller<bo.PeriodCategory>): void {
+                super.fetch(bo.PeriodCategory.name, fetcher);
+            }
+            /**
+             * 保存 期间类型
+             * @param saver 保存者
+             */
+            savePeriodCategory(saver: ibas.ISaveCaller<bo.PeriodCategory>): void {
+                super.save(bo.PeriodCategory.name, saver);
+            }
+            /**
              * 查询 过账期间
              * @param fetcher 查询者
              */

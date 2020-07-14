@@ -5,13 +5,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import org.colorcoding.ibas.accounting.MyConfiguration;
+import org.colorcoding.ibas.accounting.data.emPeriodStatus;
 import org.colorcoding.ibas.bobas.bo.BusinessObject;
 import org.colorcoding.ibas.bobas.core.IPropertyInfo;
 import org.colorcoding.ibas.bobas.data.DateTime;
 import org.colorcoding.ibas.bobas.mapping.DbField;
 import org.colorcoding.ibas.bobas.mapping.DbFieldType;
-import org.colorcoding.ibas.accounting.MyConfiguration;
-import org.colorcoding.ibas.accounting.data.emPeriodStatus;
 
 /**
  * 过账期间-项目
@@ -24,7 +24,7 @@ public class PostingPeriodItem extends BusinessObject<PostingPeriodItem> impleme
 	/**
 	 * 序列化版本标记
 	 */
-	private static final long serialVersionUID = 9161464090956071160L;
+	private static final long serialVersionUID = -174114546033620775L;
 
 	/**
 	 * 当前类型
@@ -47,34 +47,34 @@ public class PostingPeriodItem extends BusinessObject<PostingPeriodItem> impleme
 	public static final String BUSINESS_OBJECT_NAME = "PostingPeriodItem";
 
 	/**
-	 * 属性名称-业务对象
+	 * 属性名称-单据类型
 	 */
-	private static final String PROPERTY_BUSINESSOBJECT_NAME = "BusinessObject";
+	private static final String PROPERTY_DOCUMENTTYPE_NAME = "DocumentType";
 
 	/**
-	 * 业务对象 属性
+	 * 单据类型 属性
 	 */
-	@DbField(name = "BOCode", type = DbFieldType.ALPHANUMERIC, table = DB_TABLE_NAME, primaryKey = false)
-	public static final IPropertyInfo<String> PROPERTY_BUSINESSOBJECT = registerProperty(PROPERTY_BUSINESSOBJECT_NAME,
+	@DbField(name = "DocType", type = DbFieldType.ALPHANUMERIC, table = DB_TABLE_NAME, primaryKey = false)
+	public static final IPropertyInfo<String> PROPERTY_DOCUMENTTYPE = registerProperty(PROPERTY_DOCUMENTTYPE_NAME,
 			String.class, MY_CLASS);
 
 	/**
-	 * 获取-业务对象
+	 * 获取-单据类型
 	 * 
 	 * @return 值
 	 */
-	@XmlElement(name = PROPERTY_BUSINESSOBJECT_NAME)
-	public final String getBusinessObject() {
-		return this.getProperty(PROPERTY_BUSINESSOBJECT);
+	@XmlElement(name = PROPERTY_DOCUMENTTYPE_NAME)
+	public final String getDocumentType() {
+		return this.getProperty(PROPERTY_DOCUMENTTYPE);
 	}
 
 	/**
-	 * 设置-业务对象
+	 * 设置-单据类型
 	 * 
 	 * @param value 值
 	 */
-	public final void setBusinessObject(String value) {
-		this.setProperty(PROPERTY_BUSINESSOBJECT, value);
+	public final void setDocumentType(String value) {
+		this.setProperty(PROPERTY_DOCUMENTTYPE, value);
 	}
 
 	/**
@@ -517,7 +517,7 @@ public class PostingPeriodItem extends BusinessObject<PostingPeriodItem> impleme
 	@Override
 	protected void initialize() {
 		super.initialize();// 基类初始化，不可去除
-		this.setObjectCode(BUSINESS_OBJECT_CODE);
+		this.setObjectCode(MyConfiguration.applyVariables(BUSINESS_OBJECT_CODE));
 
 	}
 

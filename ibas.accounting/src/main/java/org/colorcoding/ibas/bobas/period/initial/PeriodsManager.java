@@ -1,5 +1,9 @@
 package org.colorcoding.ibas.bobas.period.initial;
 
+import org.colorcoding.ibas.accounting.bo.postingperiod.IPostingPeriod;
+import org.colorcoding.ibas.accounting.bo.postingperiod.PostingPeriod;
+import org.colorcoding.ibas.accounting.data.emPeriodStatus;
+import org.colorcoding.ibas.accounting.repository.BORepositoryAccounting;
 import org.colorcoding.ibas.bobas.common.Criteria;
 import org.colorcoding.ibas.bobas.common.ICriteria;
 import org.colorcoding.ibas.bobas.common.IOperationResult;
@@ -13,10 +17,6 @@ import org.colorcoding.ibas.bobas.organization.OrganizationFactory;
 import org.colorcoding.ibas.bobas.period.IPeriodData;
 import org.colorcoding.ibas.bobas.period.IPeriodsManager;
 import org.colorcoding.ibas.bobas.period.PeriodException;
-import org.colorcoding.ibas.accounting.bo.postingperiod.IPostingPeriod;
-import org.colorcoding.ibas.accounting.bo.postingperiod.PostingPeriod;
-import org.colorcoding.ibas.accounting.data.emPeriodStatus;
-import org.colorcoding.ibas.accounting.repository.BORepositoryAccounting;
 
 public class PeriodsManager implements IPeriodsManager {
 
@@ -91,8 +91,8 @@ class PeriodItem {
 		this();
 		this.setKey(period.getObjectKey());
 		this.setName(period.getName());
-		this.setDateFrom(period.getPostingDateFrom());
-		this.setDateTo(period.getPostingDateTo());
+		this.setDateFrom(period.getStartDate());
+		this.setDateTo(period.getEndDate());
 		this.setStatus(period.getStatus());
 		if (this.getName() == null || this.getName().isEmpty()) {
 			this.setName(String.valueOf(this.getKey()));

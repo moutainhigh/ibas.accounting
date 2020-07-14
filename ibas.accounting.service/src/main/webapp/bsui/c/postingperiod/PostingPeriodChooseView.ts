@@ -59,18 +59,18 @@ namespace accounting {
                                 }),
                             }),
                             new sap.extension.table.DataColumn("", {
-                                label: ibas.i18n.prop("bo_postingperiod_postingdatefrom"),
+                                label: ibas.i18n.prop("bo_postingperiod_startdate"),
                                 template: new sap.extension.m.Text("", {
                                 }).bindProperty("bindingValue", {
-                                    path: "postingDateFrom",
+                                    path: "startDate",
                                     type: new sap.extension.data.Date()
                                 }),
                             }),
                             new sap.extension.table.DataColumn("", {
-                                label: ibas.i18n.prop("bo_postingperiod_postingdateto"),
+                                label: ibas.i18n.prop("bo_postingperiod_enddate"),
                                 template: new sap.extension.m.Text("", {
                                 }).bindProperty("bindingValue", {
-                                    path: "postingDateTo",
+                                    path: "endDate",
                                     type: new sap.extension.data.Date()
                                 }),
                             }),

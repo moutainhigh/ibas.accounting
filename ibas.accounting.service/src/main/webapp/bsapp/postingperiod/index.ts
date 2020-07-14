@@ -6,6 +6,7 @@
  * that can be found in the LICENSE file at http://www.apache.org/licenses/LICENSE-2.0
  */
 /// <reference path="./PostingPeriodFunc.ts" />
-/// <reference path="./PostingPeriodListApp.ts" />
+/// <reference path="./PeriodCategoryListApp.ts" />
+/// <reference path="./PeriodCategoryEditApp.ts" />
 /// <reference path="./PostingPeriodChooseApp.ts" />
-/// <reference path="./PostingPeriodEditApp.ts" />
+/// <reference path="./PeriodCategoryChooseApp.ts" />

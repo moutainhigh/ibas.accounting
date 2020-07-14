@@ -29,12 +29,23 @@ namespace accounting {
             /** 映射的属性名称-类别 */
             static PROPERTY_CATEGORY_NAME: string = "Category";
             /** 获取-类别 */
-            get category(): string {
-                return this.getProperty<string>(PostingPeriod.PROPERTY_CATEGORY_NAME);
+            get category(): number {
+                return this.getProperty<number>(PostingPeriod.PROPERTY_CATEGORY_NAME);
             }
             /** 设置-类别 */
-            set category(value: string) {
+            set category(value: number) {
                 this.setProperty(PostingPeriod.PROPERTY_CATEGORY_NAME, value);
+            }
+
+            /** 映射的属性名称-序号 */
+            static PROPERTY_ORDER_NAME: string = "Order";
+            /** 获取-序号 */
+            get order(): number {
+                return this.getProperty<number>(PostingPeriod.PROPERTY_ORDER_NAME);
+            }
+            /** 设置-序号 */
+            set order(value: number) {
+                this.setProperty(PostingPeriod.PROPERTY_ORDER_NAME, value);
             }
 
             /** 映射的属性名称-状态 */
@@ -48,26 +59,26 @@ namespace accounting {
                 this.setProperty(PostingPeriod.PROPERTY_STATUS_NAME, value);
             }
 
-            /** 映射的属性名称-账期开始日期 */
-            static PROPERTY_POSTINGDATEFROM_NAME: string = "PostingDateFrom";
-            /** 获取-账期开始日期 */
-            get postingDateFrom(): Date {
-                return this.getProperty<Date>(PostingPeriod.PROPERTY_POSTINGDATEFROM_NAME);
+            /** 映射的属性名称-起始日期 */
+            static PROPERTY_STARTDATE_NAME: string = "StartDate";
+            /** 获取-起始日期 */
+            get startDate(): Date {
+                return this.getProperty<Date>(PostingPeriod.PROPERTY_STARTDATE_NAME);
             }
-            /** 设置-账期开始日期 */
-            set postingDateFrom(value: Date) {
-                this.setProperty(PostingPeriod.PROPERTY_POSTINGDATEFROM_NAME, value);
+            /** 设置-起始日期 */
+            set startDate(value: Date) {
+                this.setProperty(PostingPeriod.PROPERTY_STARTDATE_NAME, value);
             }
 
-            /** 映射的属性名称-账期结束日期 */
-            static PROPERTY_POSTINGDATETO_NAME: string = "PostingDateTo";
-            /** 获取-账期结束日期 */
-            get postingDateTo(): Date {
-                return this.getProperty<Date>(PostingPeriod.PROPERTY_POSTINGDATETO_NAME);
+            /** 映射的属性名称-结束日期 */
+            static PROPERTY_ENDDATE_NAME: string = "EndDate";
+            /** 获取-结束日期 */
+            get endDate(): Date {
+                return this.getProperty<Date>(PostingPeriod.PROPERTY_ENDDATE_NAME);
             }
-            /** 设置-账期结束日期 */
-            set postingDateTo(value: Date) {
-                this.setProperty(PostingPeriod.PROPERTY_POSTINGDATETO_NAME, value);
+            /** 设置-结束日期 */
+            set endDate(value: Date) {
+                this.setProperty(PostingPeriod.PROPERTY_ENDDATE_NAME, value);
             }
 
             /** 映射的属性名称-对象编号 */
@@ -240,13 +251,9 @@ namespace accounting {
                 this.add(item);
                 return item;
             }
-            /**
-             * 添加项目后
-             * @param item 项目
-             */
-            protected afterAdd(item: PostingPeriodItem): void {
-                super.afterAdd(item);
-                item.status = this.parent.status;
+            /** 子项属性改变时 */
+            protected onItemPropertyChanged(item: PostingPeriodItem, name: string): void {
+                this.parent.markDirty();
             }
         }
 
@@ -256,15 +263,15 @@ namespace accounting {
             constructor() {
                 super();
             }
-            /** 映射的属性名称-业务对象 */
-            static PROPERTY_BUSINESSOBJECT_NAME: string = "BusinessObject";
-            /** 获取-业务对象 */
-            get businessObject(): string {
-                return this.getProperty<string>(PostingPeriodItem.PROPERTY_BUSINESSOBJECT_NAME);
+            /** 映射的属性名称-单据类型 */
+            static PROPERTY_DOCUMENTTYPE_NAME: string = "DocumentType";
+            /** 获取-单据类型 */
+            get documentType(): string {
+                return this.getProperty<string>(PostingPeriodItem.PROPERTY_DOCUMENTTYPE_NAME);
             }
-            /** 设置-业务对象 */
-            set businessObject(value: string) {
-                this.setProperty(PostingPeriodItem.PROPERTY_BUSINESSOBJECT_NAME, value);
+            /** 设置-单据类型 */
+            set documentType(value: string) {
+                this.setProperty(PostingPeriodItem.PROPERTY_DOCUMENTTYPE_NAME, value);
             }
 
             /** 映射的属性名称-状态 */

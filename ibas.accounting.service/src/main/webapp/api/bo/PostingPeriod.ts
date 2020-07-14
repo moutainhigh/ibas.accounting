@@ -12,13 +12,15 @@ namespace accounting {
             /** 名称 */
             name: string;
             /** 类别 */
-            category: string;
+            category: number;
+            /** 序号 */
+            order: number;
             /** 状态 */
             status: emPeriodStatus;
-            /** 账期开始日期 */
-            postingDateFrom: Date;
-            /** 账期结束日期 */
-            postingDateTo: Date;
+            /** 起始日期 */
+            startDate: Date;
+            /** 结束日期 */
+            endDate: Date;
             /** 对象编号 */
             objectKey: number;
             /** 对象类型 */
@@ -59,8 +61,8 @@ namespace accounting {
 
         /** 过账期间-项目 */
         export interface IPostingPeriodItem extends ibas.IBOSimpleLine {
-            /** 业务对象 */
-            businessObject: string;
+            /** 单据类型 */
+            documentType: string;
             /** 状态 */
             status: emPeriodStatus;
             /** 对象编号 */

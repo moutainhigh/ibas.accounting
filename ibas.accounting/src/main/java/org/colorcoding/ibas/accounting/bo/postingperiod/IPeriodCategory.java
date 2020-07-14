@@ -5,10 +5,10 @@ import org.colorcoding.ibas.bobas.bo.IBOSimple;
 import org.colorcoding.ibas.bobas.data.DateTime;
 
 /**
- * 过账期间 接口
+ * 期间类型 接口
  * 
  */
-public interface IPostingPeriod extends IBOSimple {
+public interface IPeriodCategory extends IBOSimple {
 
 	/**
 	 * 获取-名称
@@ -23,34 +23,6 @@ public interface IPostingPeriod extends IBOSimple {
 	 * @param value 值
 	 */
 	void setName(String value);
-
-	/**
-	 * 获取-类别
-	 * 
-	 * @return 值
-	 */
-	Integer getCategory();
-
-	/**
-	 * 设置-类别
-	 * 
-	 * @param value 值
-	 */
-	void setCategory(Integer value);
-
-	/**
-	 * 获取-序号
-	 * 
-	 * @return 值
-	 */
-	Integer getOrder();
-
-	/**
-	 * 设置-序号
-	 * 
-	 * @param value 值
-	 */
-	void setOrder(Integer value);
 
 	/**
 	 * 获取-状态
@@ -95,32 +67,74 @@ public interface IPostingPeriod extends IBOSimple {
 	void setEndDate(DateTime value);
 
 	/**
-	 * 获取-对象编号
+	 * 获取-编号
 	 * 
 	 * @return 值
 	 */
 	Integer getObjectKey();
 
 	/**
-	 * 设置-对象编号
+	 * 设置-编号
 	 * 
 	 * @param value 值
 	 */
 	void setObjectKey(Integer value);
 
 	/**
-	 * 获取-对象类型
+	 * 获取-类型
 	 * 
 	 * @return 值
 	 */
 	String getObjectCode();
 
 	/**
-	 * 设置-对象类型
+	 * 设置-类型
 	 * 
 	 * @param value 值
 	 */
 	void setObjectCode(String value);
+
+	/**
+	 * 获取-实例号（版本）
+	 * 
+	 * @return 值
+	 */
+	Integer getLogInst();
+
+	/**
+	 * 设置-实例号（版本）
+	 * 
+	 * @param value 值
+	 */
+	void setLogInst(Integer value);
+
+	/**
+	 * 获取-数据源
+	 * 
+	 * @return 值
+	 */
+	String getDataSource();
+
+	/**
+	 * 设置-数据源
+	 * 
+	 * @param value 值
+	 */
+	void setDataSource(String value);
+
+	/**
+	 * 获取-编号系列
+	 * 
+	 * @return 值
+	 */
+	Integer getSeries();
+
+	/**
+	 * 设置-编号系列
+	 * 
+	 * @param value 值
+	 */
+	void setSeries(Integer value);
 
 	/**
 	 * 获取-创建日期
@@ -179,48 +193,6 @@ public interface IPostingPeriod extends IBOSimple {
 	void setUpdateTime(Short value);
 
 	/**
-	 * 获取-实例号（版本）
-	 * 
-	 * @return 值
-	 */
-	Integer getLogInst();
-
-	/**
-	 * 设置-实例号（版本）
-	 * 
-	 * @param value 值
-	 */
-	void setLogInst(Integer value);
-
-	/**
-	 * 获取-服务系列
-	 * 
-	 * @return 值
-	 */
-	Integer getSeries();
-
-	/**
-	 * 设置-服务系列
-	 * 
-	 * @param value 值
-	 */
-	void setSeries(Integer value);
-
-	/**
-	 * 获取-数据源
-	 * 
-	 * @return 值
-	 */
-	String getDataSource();
-
-	/**
-	 * 设置-数据源
-	 * 
-	 * @param value 值
-	 */
-	void setDataSource(String value);
-
-	/**
 	 * 获取-创建用户
 	 * 
 	 * @return 值
@@ -275,19 +247,5 @@ public interface IPostingPeriod extends IBOSimple {
 	 * @param value 值
 	 */
 	void setUpdateActionId(String value);
-
-	/**
-	 * 获取-过账期间-项目集合
-	 * 
-	 * @return 值
-	 */
-	IPostingPeriodItems getPostingPeriodItems();
-
-	/**
-	 * 设置-过账期间-项目集合
-	 * 
-	 * @param value 值
-	 */
-	void setPostingPeriodItems(IPostingPeriodItems value);
 
 }

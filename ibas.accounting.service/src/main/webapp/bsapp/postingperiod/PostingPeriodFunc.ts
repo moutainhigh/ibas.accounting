@@ -21,7 +21,7 @@ namespace accounting {
             }
             /** 默认功能 */
             default(): ibas.IApplication<ibas.IView> {
-                let app: PostingPeriodListApp = new PostingPeriodListApp();
+                let app: PeriodCategoryListApp = new PeriodCategoryListApp();
                 app.navigation = this.navigation;
                 return app;
             }

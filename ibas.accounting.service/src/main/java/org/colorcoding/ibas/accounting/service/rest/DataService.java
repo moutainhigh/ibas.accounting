@@ -8,6 +8,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.colorcoding.ibas.accounting.bo.dimension.Dimension;
+import org.colorcoding.ibas.accounting.bo.postingperiod.PeriodCategory;
 import org.colorcoding.ibas.accounting.bo.postingperiod.PostingPeriod;
 import org.colorcoding.ibas.accounting.bo.project.Project;
 import org.colorcoding.ibas.accounting.bo.taxgroup.TaxGroup;
@@ -20,6 +21,36 @@ import org.colorcoding.ibas.bobas.common.OperationResult;
  */
 @Path("data")
 public class DataService extends BORepositoryAccounting {
+	// --------------------------------------------------------------------------------------------//
+	/**
+	 * 查询-期间类型
+	 * 
+	 * @param criteria 查询
+	 * @param token    口令
+	 * @return 操作结果
+	 */
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("fetchPeriodCategory")
+	public OperationResult<PeriodCategory> fetchPeriodCategory(Criteria criteria, @QueryParam("token") String token) {
+		return super.fetchPeriodCategory(criteria, token);
+	}
+
+	/**
+	 * 保存-期间类型
+	 * 
+	 * @param bo    对象实例
+	 * @param token 口令
+	 * @return 操作结果
+	 */
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("savePeriodCategory")
+	public OperationResult<PeriodCategory> savePeriodCategory(PeriodCategory bo, @QueryParam("token") String token) {
+		return super.savePeriodCategory(bo, token);
+	}
 
 	// --------------------------------------------------------------------------------------------//
 	/**

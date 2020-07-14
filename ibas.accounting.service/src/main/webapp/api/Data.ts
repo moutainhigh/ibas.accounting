@@ -26,6 +26,8 @@ namespace accounting {
     export namespace bo {
         /** 业务仓库名称 */
         export const BO_REPOSITORY_ACCOUNTING: string = ibas.strings.format(ibas.MODULE_REPOSITORY_NAME_TEMPLATE, CONSOLE_NAME);
+        /** 业务对象编码-期间类型 */
+        export const BO_CODE_PERIODCATEGORY: string = "${Company}_AC_CATEGORY";
         /** 业务对象编码-过账期间 */
         export const BO_CODE_POSTINGPERIOD: string = "${Company}_AC_PERIOD";
         /** 业务对象编码-项目 */
@@ -120,7 +122,7 @@ namespace accounting {
                     condition = new ibas.Condition();
                     condition.bracketClose = 2;
                     condition.alias = bo.TaxGroup.PROPERTY_VALIDDATE_NAME;
-                    condition.operation = ibas.emConditionOperation.LESS_EQUAL;
+                    condition.operation = ibas.emConditionOperation.GRATER_EQUAL;
                     condition.value = today;
                     conditions.add(condition);
                     return conditions;
